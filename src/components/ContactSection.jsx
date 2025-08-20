@@ -18,26 +18,45 @@ export default function ContactSection() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    // Send form data to Formspree
+    try {
+      const response = await fetch('https://formspree.io/f/xvgqjbrj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+      if (response.ok) {
+        alert('Thank you for your message! I will get back to you soon.');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert('Sorry, there was a problem sending your message. Please try again later.');
+      }
+    } catch (error) {
+      alert('Sorry, there was a problem sending your message. Please try again later.');
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       title: 'Email',
-      value: 'seyram@example.com',
-      href: 'mailto:seyram@example.com'
+      value: 'seyramabofra@gmail.com',
+      href: 'mailto:seyramabofram@gmail.com'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+233 123 456 789',
-      href: 'tel:+233123456789'
+      value: '+233 508 593 871',
+      href: 'tel:+233508593871'
     },
     {
       icon: MapPin,
@@ -51,13 +70,13 @@ export default function ContactSection() {
     {
       icon: Linkedin,
       title: 'LinkedIn',
-      href: 'https://linkedin.com/in/seyram',
+      href: 'https://www.linkedin.com/in/seyram-abofra/',
       color: 'text-blue-600 hover:text-blue-700'
     },
     {
       icon: Twitter,
       title: 'Twitter',
-      href: 'https://twitter.com/seyram',
+      href: 'https://x.com/seyramdev',
       color: 'text-sky-500 hover:text-sky-600'
     }
   ];

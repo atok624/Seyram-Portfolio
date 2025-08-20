@@ -6,10 +6,14 @@ import HeroSection from "./components/HeroSection";
 
 export default function App() {
   return (
-    <div className="font-sans text-gray-800">
-      {/* Navbar */}
-      <Navbar />
-      
+    <main className="font-sans text-gray-800">
+      {/* Skip to Content Link for accessibility */}
+      <a href="#about" className="sr-only focus:not-sr-only absolute top-2 left-2 bg-blue-600 text-white px-4 py-2 rounded z-50">Skip to Content</a>
+      <header>
+        <nav aria-label="Main Navigation">
+          <Navbar />
+        </nav>
+      </header>
       <HeroSection />
 
       {/* About Section */}
@@ -22,7 +26,7 @@ export default function App() {
                 <div className="relative">
                   <img 
                     src="/seyram.png" 
-                    alt="Seyram" 
+                    alt="Portrait of Seyram, SEO Specialist & Digital Marketing Tutor" 
                     className="w-80 h-80 rounded-full object-cover shadow-2xl border-4 border-white/50"
                   />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-t from-blue-600/20 to-transparent" />
@@ -84,7 +88,7 @@ export default function App() {
             <span className="inline-block px-4 py-2 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
               Services
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 id="services-heading" className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               What I <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Offer</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -189,7 +193,7 @@ export default function App() {
             <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-200 text-sm font-medium rounded-full mb-4">
               Portfolio
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 id="portfolio-heading" className="text-4xl md:text-5xl font-bold text-white mb-6">
               My <span className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">SEO & Marketing</span> Results
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -325,13 +329,13 @@ export default function App() {
       </section>
 
       {/* Featured Article */}
-      <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section id="featured" className="py-20 px-6 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-2 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
               Featured Publication
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 id="featured-heading" className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Thought Leadership
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -420,9 +424,9 @@ export default function App() {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-6 text-center">
+      <footer className="bg-gray-800 text-white py-6 text-center" role="contentinfo">
         <p>&copy; 2025 Seyram. All rights reserved.</p>
       </footer>
-    </div>
+    </main>
   );
 }
